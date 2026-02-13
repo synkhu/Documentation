@@ -1,0 +1,491 @@
+\documentclass[colorlinks]{docs}
+
+% 1. PDF verzió kezelése (a figyelmeztetés megszüntetéséhez)
+\pdfminorversion=7
+
+% 2. Magyar nyelv specifikus beállítások (a babel ELŐTT)
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+
+% 3. Alapvető kódolás és nyelvi csomag
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+
+% 4. Minden egyéb csomag duplikáció nélkül
+\usepackage{graphicx,amsmath,amssymb,amsthm,hulipsum,bussproofs}
+\usepackage{listings,xcolor,rotating,booktabs,fancyvrb}
+\usepackage[normalem]{ulem}
+\usepackage{pdfpages}
+\usepackage[linguistics]{forest}
+\usepackage{stackengine,scalerel}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-\do\.\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+% Formázási és matematikai beállítások
+\footnotestyle{rule=fourth}
+\DeclareMathOperator{\tg}{tg}
+\newtheorem{tetel}{Tétel}[chapter]
+\newtheorem{lemma}[tetel]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definicio}[tetel]{Definíció}
+\newtheorem{feladat}[tetel]{Feladat}
+\theoremstyle{remark}
+\newtheorem{megjegyzes}[tetel]{Megjegyzés}
+\newtheorem*{megoldas}{Megoldás}
+
+% Listings beállítása a magyar karakterekhez
+\lstset{
+	inputencoding=utf8,
+	extendedchars=true,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ö}{{\"o}}1 {ő}{{\H{o}}}1
+    {ú}{{\'u}}1 {ü}{{\"u}}1 {ű}{{\H{u}}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ö}{{\"O}}1 {Ő}{{\H{O}}}1
+    {Ú}{{\'U}}1 {Ü}{{\"U}}1 {Ű}{{\H{U}}}1,
+    breaklines=true,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{teal}
+}
+
+
+% Define JavaScript language for listings
+\lstdefinelanguage{JavaScript}{
+    keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with, let, const, export, import, await, async},
+    ndkeywords={class, export, boolean, throw, implements, import, this, new},
+    sensitive=true,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]',
+    morestring=[b]",
+    alsoletter={-},
+    alsodigit={:},
+    morekeywords=[2]{=>, yield, async, await, constructor},
+    keywordstyle=\color{blue}\bfseries,
+    ndkeywordstyle=\color{green}\bfseries,
+    identifierstyle=\color{black},
+    commentstyle=\color{gray}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+}
+
+% Customize listings appearance
+\lstset{
+    language=JavaScript,
+    extendedchars=true,
+    inputencoding=utf8,
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=10pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    captionpos=b,
+    escapeinside={\%*}{*)},
+}
+
+% Fordított 'T' szimbólum definiálása
+\def\tang{\ThisStyle{\abovebaseline[0pt]{\scalebox{-1}{$\SavedStyle\perp$}}}}
+
+\begin{document}
+
+\title{Synk}
+
+\author{Erdős Martin\\Makkai Krisztián\\Szedlák Krisztián\\Szoftverfejlesztő és -tesztelő szak}
+\institute{Informatika és távközlés ágazat}
+\supervisor{Kerényi Róbert Nándor\\oktató}
+\city{Miskolc}
+\date{2026}
+\begin{figure}[h]
+    \centering
+    \label{fig:minta}
+\end{figure}
+\maketitle
+
+\tableofcontents
+\newpage
+
+% --- 1. fejezet ---
+\chapter{Bevezetés}
+
+\section{A projekt bemutatása és célja}
+A \textbf{Synk} egy innovatív, többplatformos koncertjegy-értékesítési ökoszisztéma. A projekt célja egy olyan integrált környezet létrehozása, amely a modern webes technológiák, az asztali alkalmazások ereje és a mobilis megoldások rugalmassága révén szolgálja ki a rendezvényszervezői piacot. A rendszer alapvető küldetése a jegyvásárlási folyamat transzparenssé tétele, a valós idejű készletkezelés és a biztonságos, digitális jegyfelhasználás biztosítása.
+
+A Synk architektúrája négy fő pillérre épül: egy villámgyors vásárlói webfelületre, egy robusztus adminisztrációs asztali alkalmazásra, egy hordozható mobilalkalmazásra és az ezeket kiszolgáló központi API-ra.
+
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=9cm]{figures/dotNET.jpg}
+	\caption[dotNET]{A Synk szoftverarchitektúrája}
+	\label{fig-dotNET}
+\end{figure}
+
+\section{Célközönség meghatározása}
+A szoftver célközönsége rétegzett, minden felhasználói típushoz dedikált felület tartozik:
+\begin{itemize}
+    \item \textbf{Végfelhasználók (Vásárlók):} A Next.js felületen böngésznek, a React Native mobilalkalmazásban pedig tárolják és kezelik digitális jegyeiket.
+    \item \textbf{Rendezvényszervezők:} A webfelületen / WPF kliensen keresztül végzik a komplex eseménymenedzsmentet és felhasználókezelést.
+    \item \textbf{Helyszíni személyzet:} A mobilalkalmazás speciális funkcióival végzik a gyors, QR-kód alapú jegyérvényesítést.
+\end{itemize}
+
+Az automatikus tételbizonyítás egyik fontos megközelítése Herbrand nevéhez fűződik (1930). Herbrand algoritmust dolgozott ki olyan interpretáció előállítására, amely hamissá tehet egy formulát. Ugyanakkor, ha az illető formula logikailag igaz, tehát nincs olyan interpretáció, amelyben hamissá válna, ez az algoritmus véges sok lépés után megáll. {\cite{Varteresz}} Ez a logikai szigor alapvető a Synk jegyfoglalási algoritmusánál is, ahol el kell kerülni az olyan állapotokat, amelyek ellentmondáshoz (pl. túlfoglaláshoz) vezetnének.
+
+\section{Alkalmazott technológiák és eszközök}
+Lásd: \ref{fig-melleklet1} melléklet ábrát.
+
+\begin{itemize}
+	\item \textbf{Adatbázis:} PostgreSQL – A komplex relációs adatok és tranzakciók biztonságos kezeléséhez.
+	\item \textbf{Backend:} RESTful API (ASP.NET Core) – A központi üzleti logika kiszolgálója.
+	\item \textbf{Webes kliens:} Next.js – Szerveroldali rendereléssel támogatott React keretrendszer az optimális SEO és sebesség érdekében.
+	\item \textbf{Mobil alkalmazás:} React Native (Expo) – Cross-platform megoldás, amely lehetővé teszi a natív élményt iOS és Android eszközökön a digitális jegyek kezeléséhez.
+	\item \textbf{Asztali kliens:} WPF (C\#) – Nagy teljesítményű adminisztrációs felület Windows környezetbe.
+\end{itemize}
+
+A rendszer logikai folyamatainak leírásához az alábbi szimbólumrendszert használjuk:
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{SZIMBÓLUM} & \textbf{MAGYAR MEGNEVEZÉS} & \textbf{IDEGEN MEGNEVEZÉS} \\ \hline
+		$\land$ & \textbf{ÉS} & \textbf{KONJUNKCIÓ} \\ \hline
+		$\lor$ & \textbf{VAGY} & \textbf{DISZJUNKCIÓ} \\ \hline
+		$\Rightarrow$ & \textbf{AKKOR..HA} & \textbf{IMPLIKÁCIÓ} \\ \hline
+		$\Leftrightarrow$ & \textbf{AKKOR ÉS CSAK AKKOR} & \textbf{EKVIVALENCIA} \\ \hline
+	\end{tabular}
+    \caption{Alkalmazott logikai műveletek}
+    \label{tab:logika}
+\end{table}
+
+% --- 2. fejezet ---
+\chapter{Követelményanalízis}
+
+\section{Funkcionális követelmények}
+A Synk rendszer funkcionális követelményei a tier-alapú jegyértékesítési modellre és a többrétegű kliensarchitektúrára fókuszálnak.
+
+\subsection{Webes felület (Next.js)}
+\begin{itemize}
+    \item \textbf{Események listázása:} A koncertek adatlapjának megjelenítése (leírás, dátum, fellépők).
+    \item \textbf{Tier-alapú jegyválasztás:} A felhasználó választhat a különböző árkategóriájú és szolgáltatástartalmú jegytípusok (pl. Early Bird, Standard, VIP) közül a szabad készlet erejéig.
+    \item \textbf{Jegylistázás:} Biztonságos jegykezelés, PDF formátumú jegyletöltés.
+\end{itemize}
+
+\subsection{Mobil alkalmazás (React Native + Expo)}
+\begin{itemize}
+    \item \textbf{Jegyek kezelése:} A megvásárolt, különböző kategóriájú jegyek tárolása és vizuális megjelenítése.
+    \item \textbf{QR-kódos validáció:} Egyedi, dinamikusan generált azonosítók megjelenítése a belépéshez.
+    \item \textbf{Beléptető modul:} A személyzet számára elkülönített felület a jegyek szkennelésére és valós idejű érvénytelenítésére az API-n keresztül.
+\end{itemize}
+
+\subsection{Adminisztrációs kliens (WPF)}
+A WPF alkalmazás kizárólag belső, adminisztratív célokat szolgál, közvetlen elérést biztosítva az üzleti adatokhoz:
+\begin{itemize}
+    \item \textbf{Rendszerfelügyelet:} Felhasználó, és felhasználói jogosultságok kezelése és az adatbázis integritásának ellenőrzése.
+\end{itemize}
+
+\section{Nem funkcionális követelmények}
+\begin{itemize}
+    \item \textbf{Tranzakcionális biztonság:} A PostgreSQL ACID tulajdonságait kihasználva garantálni kell, hogy a jegy-tierek darabszáma (stock) ne csökkenhessen negatív tartományba párhuzamos vásárlások esetén sem.
+    \item \textbf{Keresőoptimalizálás (SEO):} A Next.js használatával biztosítani kell az eseményoldalak gyors indexelhetőségét.
+    \item \textbf{Hordozhatóság:} A React Native kódalapnak minimális módosítással futnia kell mind iOS, mind Android eszközökön.
+    \item \textbf{Adatvédelem:} A GDPR előírásoknak megfelelő titkosított adattárolás.
+\end{itemize}
+
+\section{Használati esetek (Use Cases)}
+
+
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|p{6cm}|l|}
+        \hline
+        \textbf{ID} & \textbf{Megnevezés} & \textbf{Aktor} \\ \hline
+        UC-01 & Jegyvásárlás adott kategóriában (Tier) & Vásárló \\ \hline
+        UC-02 & Jegyérvényesítés mobil eszközzel & Személyzet \\ \hline
+        UC-03 & Esemény és jegy-kvóták beállítása & Adminisztrátor \\ \hline
+        UC-04 & Felhasználókezelés & Adminisztrátor \\ \hline
+    \end{tabular}
+    \caption{A Synk platform használati esetei}
+    \label{tab:use_cases_tier}
+\end{table}
+
+\subsection{Kiemelt Use Case: Jegyvásárlás (UC-01)}
+\textbf{Leírás:} A vásárló kiválasztja a kívánt jegy-tiert (pl. VIP), megadja a darabszámot, majd a rendszer ellenőrzi a szabad kontingenst az adatbázisban.
+\textbf{Logikai feltétel:}
+Let $Q_{\text{tier}}$ be the current quota of a specific ticket category.
+\texttt{Requested\_Amount <= Q\_tier \quad AND \quad Payment\_Successful => Success}
+Siker esetén a $Q_{\text{tier}}$ értéke dekrementálódik a vásárolt darabszámmal.
+
+% --- 3. fejezet ---
+\chapter{Rendszertervezés}
+\section{Adatbázis terv}
+\subsection{ER-diagram és kapcsolatok}
+Az ER-diagram a rendszer fő entitásait és azok kapcsolatát mutatja be. A tervezés során a normalizáció 3NF-ig történik, ahol indokolt (teljesítmény- vagy lekérdezési okokból) denormalizáció alkalmazható cache-n vagy read-model rétegben.
+
+Fő entitások és kapcsolatok (röviden):
+\begin{itemize}
+    \item \textbf{User} — felhasználói fiókok: 1‑N kapcsolat az \textbf{Order}-rel és 1‑N az \textbf{Ticket}-kel (ha a jegyek fel vannak használóhoz rendelve). A User tartalmaz jogosultsági információkat (role/permission), amelyek külön táblában normalizálhatók (\textbf{Role}, \textbf{UserRole}).
+    \item \textbf{Event} — esemény: 1‑N kapcsolat az \textbf{TicketType}-pal és az \textbf{EventArtist} / \textbf{EventVenue} kapcsolótáblákkal.
+    \item \textbf{TicketType} — egy eseményhez tartozó jegytípusok (árkategória, kvóta, státusz). 1‑N kapcsolat a \textbf{Ticket}-kel; tartalmaz mezőket: price, quota, reserved, visibility.
+    \item \textbf{Order} — vásárlási rendelés: 1‑N kapcsolat a \textbf{Ticket}-kel (minden rendelés több jegyet tartalmazhat). Order kapcsolódik \textbf{Payment}-hez (1:1 vagy 1:N a részletfizetések miatt).
+    \item \textbf{Ticket} — egyedi jegy entitás: tartalmaz QR-kód token-t, státuszt (issued, used, refunded), kapcsolódik Order-hoz és (opcionálisan) User-hez.
+    \item \textbf{Payment} — tranzakciós információk (providerId, status, amount, currency, timestamp).
+    \item \textbf{Artist}, \textbf{Venue} — statikus referenciák; esemény összekapcsolása köztes táblákkal.
+\end{itemize}
+
+Kapcsolati jellemzők:
+\begin{itemize}
+    \item Kulcsok: minden táblának UUID alapú primer kulcs (Postgres: UUID) — uniformitás és globális ütközésmentesség.
+    \item Idegen kulcsokra ON DELETE RESTRICT/NO ACTION alapértelmezés, ahol az integritás fontos; soft-delete megoldás (isDeleted + deletedAt) az üzleti adatok megőrzésére.
+    \item Indexelés: gyakori lekérdezések alapján (Event.id, TicketType.eventId, Ticket.qrToken, Order.userId, Payment.providerId), partiális indexek például csak aktív jegyekre.
+\end{itemize}
+
+\subsection{Adatszótár és táblaleírások}
+A fontosabb táblák rövid leírása — oszlopnév (típus) — megjegyzések.
+
+\textbf{users}
+\begin{itemize}
+    \item id (UUID) — primer kulcs
+    \item email (VARCHAR, unique) — bejelentkezéshez
+    \item passwordHash (VARCHAR) — Argon2 tárolása
+    \item displayName (VARCHAR)
+    \item roleId (UUID) — idegen kulcs roles táblára (nem kötelező - Default: Customer)
+    \item createdAt (TIMESTAMP WITH TIME ZONE)
+    \item updatedAt (TIMESTAMP WITH TIME ZONE)
+    \item deletedAt (TIMESTAMP WITH TIME ZONE) — soft delete
+\end{itemize}
+
+\textbf{events}
+\begin{itemize}
+    \item id (UUID)
+    \item title (VARCHAR)
+    \item description (TEXT)
+    \item startTime (TIMESTAMP WITH TIME ZONE)
+    \item endTime (TIMESTAMP WITH TIME ZONE)
+    \item venueId (UUID)
+    \item createdAt, updatedAt
+\end{itemize}
+
+\textbf{ticket_types}
+\begin{itemize}
+    \item id (UUID)
+    \item eventId (UUID) — FK -> events.id
+    \item name (VARCHAR)
+    \item price (NUMERIC(10,2))
+    \item quota (INT) — teljes kvóta
+    \item reserved (INT) — aktuálisan lefoglalt
+    \item remaining (INT) — redundáns mező, csak read-optimalizálásra, triggerrel/frissítéssel karbantartva
+    \item salesStart, salesEnd (TIMESTAMP)
+    \item createdAt, updatedAt
+\end{itemize}
+
+\textbf{orders}
+\begin{itemize}
+    \item id (UUID)
+    \item userId (UUID)
+    \item totalAmount (NUMERIC(10,2))
+    \item currency (VARCHAR)
+    \item status (VARCHAR) — pending, paid, cancelled, refunded
+    \item createdAt, updatedAt
+\end{itemize}
+
+\textbf{tickets}
+\begin{itemize}
+    \item id (UUID)
+    \item ticketTypeId (UUID)
+    \item orderId (UUID)
+    \item qrToken (VARCHAR, unique)
+    \item status (VARCHAR) — issued, used, revoked
+    \item usedAt (TIMESTAMP) — ebből következik validáció
+    \item createdAt, updatedAt
+\end{itemize}
+
+\section{Rendszerarchitektúra és komponensek}
+\subsection{Általános architektúra}
+A Synk többrétegű, mikroserviz-szerű logikát követ, de a vizsgaprojekt érdekében monolitikus, modulárisan felépített backend (ASP.NET Core) került tervezésre, amelyet a következő logikai rétegekre bontunk:
+\begin{itemize}
+    \item \textbf{API réteg} — REST API, kontroller réteg, DTO-kon keresztül kommunikál.
+    \item \textbf{Service/Business réteg} — üzleti szabályokat, tranzakciókezelést, validációt tartalmazza.
+    \item \textbf{Repository/Domain réteg} — adatbázis műveletek, Unit of Work, EF DbContext kezelése.
+    \item \textbf{Client réteg} — Next.js webapp, React Native mobilapp, WPF admin kliens.
+    \item \textbf{Perzisztencia} — PostgreSQL adatbázis, opcionálisan CQRS read-model cache (Redis) olvasási optimalizációhoz.
+    \item \textbf{Aszinkron feldolgozás} — background jobok (pl. jegy-generálás, szinkronizáció külső szolgáltatóval), RabbitMQ vagy beépített háttérfeladatok.
+    \item \textbf{FileStorage} — profilképek, jegy PDF-ek tárolása S3-kompatibilis tárolón (MinIO, AWS S3).
+    \item \textbf{Monitoring/Logging} — centralizált loggyűjtés (Serilog -> Seq/ELK), metrika (Prometheus/Grafana).
+\end{itemize}
+
+\subsection{Komponensek és felelősségek}
+\begin{itemize}
+    \item \textbf{API Gateway / Reverse Proxy} — kérelem irányítás, TLS termináció (Traefik).
+    \item \textbf{Auth Service} — Session token alapú authentikáció, refresh token kezelés; jogosultságok RBAC modellben.
+    \item \textbf{Mobil App} — alacsony késleltetésű jegyvalidáció; jegykezelés
+\end{itemize}
+
+Deployment szempontok: konténerizáció (Docker), környezetspecifikus konfiguráció (konfigurációk titkos kezelése: Vault/Environment variables), CI/CD pipeline (build, migrációk, smoke tesztek).
+
+\subsection{Skálázás és rendelkezésre állás}
+\begin{itemize}
+    \item Vertikális skálázás a kezdeti fázisban; horizontális skálázás stateless service-eknél (API), állapotot DB/Redis tárolja.
+    \item Adatbázis: replikáció (read-replica) olvasási terhelés leválasztására; master node tranzakciókhoz.
+    \item Failover tervek és backup stratégia: napi teljes mentés, bináris WAL archiválás a gyors helyreállításhoz.
+\end{itemize}
+
+\section{ORM (Object-Relational Mapping)}
+\subsection{Tervezési döntések}
+Az ORM használata (Entity Framework Core) gyors fejlesztést és típusbiztonságot nyújt. Az EF-et a következő szabályok mentén használjuk:
+\begin{itemize}
+    \item \textbf{Explicit mapping} — minden entitást Fluent API-val konfigurálunk, elkerülve implicit konvenciókra való túlzott támaszkodást.
+    \item \textbf{Azonnali vs késleltetett betöltés} — alapértelmezettként explicit Include használata nagy lekérdezéseknél; Lazy Loading csak jól ellenőrzött helyeken, hogy elkerüljük a N+1 problémákat.
+    \item \textbf{Tranzakciókezelés} — minden kritikus művelet (pl. jegyvásárlás) explicit tranzakcióba kerül: DbContext.Database.BeginTransactionAsync() + commit/rollback.
+    \item \textbf{Concurrency} — Optimistic Concurrency: minden fontos entitás (pl. TicketType) tartalmaz `row_version` (bytea / xmin / timestamp) mezőt, EF ConcurrencyToken-ként kezelve; konfliktus esetén visszadobott DbUpdateConcurrencyException kezelése és retry logika alkalmazása.
+\end{itemize}
+
+\subsection{Mapping és DTO stratégia}
+A belső domain entitások nem kerülnek közvetlenül a kliens felé. DTO-kat és automapper profilt használunk a lehetséges túlzott adatkinyerés elkerülésére, valamint a visszaadott JSON szerkezet stabilitásának biztosítására.
+
+\section{Entity Framework}
+\subsection{DbContext és konfiguráció}
+A `ApplicationDbContext` a per-request scope-ban kerül regisztrálásra (AddDbContext). A konfiguráció alapelvei:
+\begin{itemize}
+    \item \textbf{Fluent API} minden táblához: kulcsok, indexek, check constraint-ek definiálása kód alapú migrációk során.
+    \item \textbf{Migrations} — kódból létrehozott, verzionált migrációk használata (`dotnet ef migrations add`), migráció futtatása deployment pipeline részeként.
+    \item \textbf{Query optimization} — AsNoTracking() read-only lekérdezésekhez, projection (Select új DTO-kra) a felesleges adatátvitel csökkentésére.
+    \item \textbf{Raw SQL} — csak akkor alkalmazzuk, ha a LINQ nem tud hatékony, optimalizált SQL-t generálni (pl. komplex aggregációk), és az SQL-injection elleni védelem biztosított paraméterezéssel.
+\end{itemize}
+
+\subsection{Teljesítmény- és karbantartási praktikák}
+\begin{itemize}
+    \item N+1 probléma elkerülése: Eager loading (Include) és batch lekérések, illetve explicit Select-projekciók.
+    \item Indexek felülvizsgálata `EXPLAIN ANALYZE` alapján, és migrációval indexek hozzáadása/eltávolítása.
+    \item Long-running query-k monitorozása és timeoutok beállítása (CommandTimeout).
+\end{itemize}
+
+\section{REST API végpontok tervezése}
+\subsection{Erőforrás-orientált tervezés}
+Az API RESTful elveket követ: erőforrások URL-jei (pl. `/api/events/{id}`, `/api/events/{id}/ticket-types`) következetesek és intuitívak. Verziózás: Accept header-ben a jövőbeli visszafelé kompatibilitás miatt.
+
+\subsection{Példa végpontok és viselkedés}
+\begin{itemize}
+    \item `GET /api/events` — lista + pagination + filterek (dateRange, artistId) + sort.
+    \item `GET /api/events/{id}` — részletes esemény adatok (ticketTypes nélkül vagy opcionálisan ?include=ticketTypes).
+    \item `POST /api/orders/purchase` — jegyvásárlás. Fontos: idempotencia kulcs támogatása (Idempotency-Key header) a duplikált fizetések elkerülésére. A végpont atomikus tranzakciót indít, ellenőrzi a kvótát és lefoglalja a jegyeket, majd kezdeményezi a fizetést.
+    \item `PATCH /api/tickets/{id}/validate` — jegy érvényesítés beléptető appból, audit log készítése minden érvényesítésről.
+\end{itemize}
+
+\subsection{Hiba- és státuszkódok}
+Következetes HTTP státuszkódok és hibaválaszok:
+\begin{itemize}
+    \item 200 OK — sikeres lekérés
+    \item 201 Created — sikeres létrehozás
+    \item 202 Accepted — aszinkron folyamat elfogadva (pl. külső fizetés feldolgozása)
+    \item 400 Bad Request — validációs hibák; válasz részletes hibaobjektummal (`field`, `message`)
+    \item 401 Unauthorized, 403 Forbidden — auth/authz hibák
+    \item 404 Not Found — nem létező erőforrás
+    \item 409 Conflict — versenyhelyzet vagy idempotencia ütközés (pl. quota insuf.)
+    \item 500+ — szerver oldali hibák (monitoring és alerting generálása)
+\end{itemize}
+
+\subsection{Biztonság és adatvédelem}
+Minden érzékeny művelethez HTTPS kötelező. Session tokenek short-lived access token + long-lived refresh token mechanizmussal.
+
+A jegyvásárlás kritikus pont; ajánlott megközelítések:
+\begin{itemize}
+    \item \textbf{Pesszimista blokkolás}: SELECT ... FOR UPDATE a kvóta soron, ha a konkurencia nagyon magas és a tranzakciók rövidek.
+    \item \textbf{Optimistic concurrency}: row_version ellenőrzés; ha verseny van, a tranzakció visszadobásra kerül és a kliens retry mechanizmussal értesül.
+    \item \textbf{Idempotencia}: belső vásárlás egységesen kezelhető idempotencia kulccsal, hogy duplikáció elkerülhető legyen.
+\end{itemize}
+
+\section{UI/UX Tervek (Wireframes)}
+A wireframe-ek és UI specifikáció célja a felhasználói folyamatok minimalizálása és a hibalehetőségek csökkentése.
+
+Fő elvek:
+\begin{itemize}
+    \item \textbf{Egyszerűsített vásárlási folyamat} — 3 lépés: (1) esemény kiválasztás, (2) jegytípus & darabszám, (3) fizetés és visszaigazolás/QR megjelenítés.
+    \item \textbf{Responszív kialakítás} — Next.js + CSS-in-JS (pl. Tailwind/Emotion) a komponensek mobil/desktop változatára; WPF admin felület esetén rugalmas grid és skálázható vezérlők.
+    \item \textbf{Átlátható hibakezelés} — valós idejű validáció (pl. darabszám > quota figyelmeztetés), inline hibauzenetek és globális toast értesítések.
+    \item \textbf{Accessibility (a11y)} — releváns aria attribútumok, kontraszt, tab-navigáció, képernyőolvasó támogatás.
+    \item \textbf{Beléptetés UX} — Mobil alkalmazás: minimalisztikus képernyő nagy, egyértelmű validáció gombokkal.
+\end{itemize}
+
+Wireframe forgatókönyvek:
+\begin{enumerate}
+    \item \textbf{Vásárlói út}: keresés -> esemény lap -> jegyválasztó modal (valós időben elérhető mennyiség) -> fizetési űrlap -> visszaigazolás + jegy PDF/QR.
+    \item \textbf{Admin esemény létrehozás}: űrlap több lépcsőben (alapadatok, jegytípusok, kvóták, publikálás); előnézeti nézet a publikus oldallal.
+    \item \textbf{Beléptetési út}: kereső / QR scanner -> jegy megtalálása -> státusz ellenőrzés -> érvényesítés + audit log.
+\end{enumerate}
+
+% --- 4. fejezet ---
+\chapter{Megvalósítás}
+\section{Adatbázis réteg implementációja}
+\section{REST Backend fejlesztése}
+\subsection{Adatkezelés és Üzleti logika}
+\subsection{Biztonság és Autentikáció (JWT)}
+\section{React Frontend fejlesztése}
+\subsection{Komponens-architektúra}
+\subsection{Reszponzív megoldások és Mobil nézet}
+\section{WPF Desktop alkalmazás}
+\subsection{MVVM architektúra és Adatkötés}
+\subsection{Törzsadat-karbantartó modulok}
+
+% --- 5. fejezet ---
+\chapter{Minőségbiztosítás és Tesztelés}
+\section{Unit tesztek (Egységtesztelés)}
+\section{API tesztelés (Postman/Swagger)}
+\section{Felhasználói felület és Reszponzivitás tesztelése}
+\section{Hibajegyzék és javítások}
+
+% --- 6. fejezet ---
+\chapter{Felhasználói útmutató}
+\section{Rendszerkövetelmények és Telepítés}
+\section{A szoftver használata (Web/WPF)}
+
+% --- 7. fejezet ---
+\chapter{Összegzés}
+\section{Projekt értékelése}
+\section{Továbbfejlesztési lehetőségek}
+
+\newpage
+\Huge\begin{center}
+    \textbf{Köszönetnyilvánítás}
+\end{center}\normalsize
+Szeretnék köszönetet mondani mindazoknak, akik segítették a vizsgaremekem létrejöttét, külön megköszönve.......
+\par
+
+\chapter*{Mellékletek}
+\addcontentsline{toc}{chapter}{Mellékletek} % Hogy benne legyen a tartalomjegyzékben
+
+% --- ELSŐ MELLÉKLET (Adatbázis) ---
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=14cm]{figures/rdb}
+	\caption[1. melléklet]{Adatbázis ábra}
+	\label{fig-melleklet1}
+\end{figure}
+
+\clearpage % Kényszerített oldalváltás a két melléklet között
+
+% --- MÁSODIK MELLÉKLET (Elforgatott dokumentum) ---
+\begin{figure}[p] % [p] = külön oldalra kerül
+	\centering
+	\begin{turn}{90}
+		\includegraphics[width=23cm]{figures/melleklet}
+	\end{turn}
+	\caption[2. melléklet]{Szkennelt dokumentum}
+	\label{fig-melleklet2}
+\end{figure}
+
+\clearpage
+
+\begin{thebibliography}{2}
+\addcontentsline{toc}{chapter}{\bibname}
+\bibitem{Fazekas}
+\textsc{Fazekas István}: \emph{Valószínűségszámítás}, Debreceni Egyetem, Debrecen, 2004.
+\bibitem{Tomacs}
+\textsc{Tómács Tibor}: \emph{A valószínűségszámítás alapjai}, Líceum Kiadó, Eger, 2005.
+\bibitem{Varteresz} \textsc{Várterész Magdolna}: \emph{Az informatika logika alapjai előadások}, 2006/07-es tanév 1.félév, \url{http://users.atw.hu/de-mi/index.php?r=file/download\&id=219},  Letöltve: 2019 március 12.-én
+\end{thebibliography}
+
+
+\end{document}
