@@ -400,11 +400,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmcsc10.tfm
 INPUT ./figures/kando-logo-hu.pdf
 INPUT ./figures/kando-logo-hu.pdf
-INPUT ./figures/Logo.jpg
-INPUT ./figures/Logo.jpg
-INPUT ./figures/Logo.jpg
-INPUT ./figures/Logo.jpg
-INPUT ./figures/Logo.jpg
+INPUT ./figures/logo.png
+INPUT ./figures/logo.png
+INPUT ./figures/logo.png
+INPUT ./figures/logo.png
+INPUT ./figures/logo.png
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm

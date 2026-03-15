@@ -369,7 +369,7 @@
 	    \else%
             \vspace{30pt}
 	        \vspace{\thesiskando@logosep}%
-	        \includegraphics[width=6cm]{figures/Logo.jpg} % A szélesség módosítása szükség szerint
+	        \includegraphics[width=6cm]{figures/logo.png} % A szélesség módosítása szükség szerint
             \\
 	    \fi%
     \vspace*{\fill}}

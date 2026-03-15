@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.16)  10 MAR 2026 11:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.16)  15 MAR 2026 21:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -945,17 +945,17 @@ File: figures/kando-logo-hu.pdf Graphic file (type pdf)
 <use figures/kando-logo-hu.pdf>
 Package pdftex.def Info: figures/kando-logo-hu.pdf  used on input line 99.
 (pdftex.def)             Requested size: 352.81552pt x 249.32265pt.
-<figures/Logo.jpg, id=233, 770.88pt x 770.88pt>
-File: figures/Logo.jpg Graphic file (type jpg)
-<use figures/Logo.jpg>
-Package pdftex.def Info: figures/Logo.jpg  used on input line 99.
-(pdftex.def)             Requested size: 170.71652pt x 170.71158pt.
+<figures/logo.png, id=233, 216.81pt x 175.65625pt>
+File: figures/logo.png Graphic file (type png)
+<use figures/logo.png>
+Package pdftex.def Info: figures/logo.png  used on input line 99.
+(pdftex.def)             Requested size: 170.71652pt x 138.31929pt.
 
 
 [1
 
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./figures/kando-logo-hu.pdf> <./figures/Logo.jpg>] (./docs.toc
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./figures/kando-logo-hu.pdf> <./figures/logo.png>] (./docs.toc
 
 [2
 
@@ -967,7 +967,7 @@ Package pdftex.def Info: figures/Logo.jpg  used on input line 99.
 
 [3]
 1. fejezet.
-<figures/dotNET.jpg, id=309, 338.01282pt x 219.82124pt>
+<figures/dotNET.jpg, id=310, 338.01282pt x 219.82124pt>
 File: figures/dotNET.jpg Graphic file (type jpg)
 <use figures/dotNET.jpg>
 Package pdftex.def Info: figures/dotNET.jpg  used on input line 116.
@@ -1107,7 +1107,7 @@ Overfull \hbox (60.65671pt too wide) in paragraph at lines 540--541
 [27]
 
 [28]
-<figures/rdb.png, id=467, 903.375pt x 788.9475pt>
+<figures/rdb.png, id=468, 903.375pt x 788.9475pt>
 File: figures/rdb.png Graphic file (type png)
 <use figures/rdb.png>
 Package pdftex.def Info: figures/rdb.png  used on input line 593.
@@ -1117,7 +1117,7 @@ Package pdftex.def Info: figures/rdb.png  used on input line 593.
 [29
 
  <./figures/rdb.png>]
-<figures/melleklet.jpg, id=473, 941.31676pt x 448.67625pt>
+<figures/melleklet.jpg, id=474, 941.31676pt x 448.67625pt>
 File: figures/melleklet.jpg Graphic file (type jpg)
 <use figures/melleklet.jpg>
 Package pdftex.def Info: figures/melleklet.jpg  used on input line 604.
@@ -1155,9 +1155,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  98i,10n,101p,1939b,640s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on docs.pdf (31 pages, 615406 bytes).
+Output written on docs.pdf (31 pages, 338536 bytes).
 PDF statistics:
- 562 PDF objects out of 1000 (max. 8388607)
+ 563 PDF objects out of 1000 (max. 8388607)
  501 compressed objects within 6 object streams
  111 named destinations out of 1000 (max. 500000)
  486 words of extra memory for PDF output out of 10000 (max. 10000000)

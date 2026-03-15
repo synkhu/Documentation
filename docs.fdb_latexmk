@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1773139012.48749 "/Users/martin/Developer/Documentation/docs.tex" "docs.pdf" "docs" 1773139013.74619 0
-  "/Users/martin/Developer/Documentation/docs.tex" 1773139012.80284 39562 0e8ac863c07c97fee769ba8bb9e969b4 ""
+["pdflatex"] 1773607452.67758 "/Users/martin/Developer/Documentation/docs.tex" "docs.pdf" "docs" 1773607453.4418 0
+  "/Users/martin/Developer/Documentation/docs.tex" 1773607401.28396 39562 0e8ac863c07c97fee769ba8bb9e969b4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc" 1254269338 3031 6c4d3515bf7115d8518af1c9ab97ca44 ""
@@ -234,14 +234,14 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1768574967 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1768574933 3345738 0669d76c7d8474dfb9a14133f7daca1b ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "docs.aux" 1773139013.6405 11759 5e674cfc34a4d1b1c2e36a64a9bb13ef "pdflatex"
-  "docs.cls" 1770976607.36935 15078 d6c1338000a600d9d314e3187a39210e ""
-  "docs.out" 1773139013.64224 12948 45c1c6ea9427ec0d006fbf7cdb0a32b1 "pdflatex"
-  "docs.tex" 1773139012.80284 39562 0e8ac863c07c97fee769ba8bb9e969b4 ""
-  "docs.toc" 1773139013.64255 6636 4a8273cd12ec5382c2629219ad8bac5a "pdflatex"
-  "figures/Logo.jpg" 1744270862 280936 9944a4bafda5b2cb172311f60de25d06 ""
+  "docs.aux" 1773607453.3769 11759 5e674cfc34a4d1b1c2e36a64a9bb13ef "pdflatex"
+  "docs.cls" 1773607452.51923 15078 2f4f6f99c17ecbbc46d1503e2ee06084 ""
+  "docs.out" 1773607453.37799 12948 45c1c6ea9427ec0d006fbf7cdb0a32b1 "pdflatex"
+  "docs.tex" 1773607401.28396 39562 0e8ac863c07c97fee769ba8bb9e969b4 ""
+  "docs.toc" 1773607453.37819 6636 4a8273cd12ec5382c2629219ad8bac5a "pdflatex"
   "figures/dotNET.jpg" 1554189042 44304 4b3e6bf0d70d0dccb47981ad3bf2f111 ""
   "figures/kando-logo-hu.pdf" 1744270862 7286 9ded0f3f1501917e96c30663ce585727 ""
+  "figures/logo.png" 1773607303.58051 4302 33f04e9415af6f79b2db1e6ee45c01cb ""
   "figures/melleklet.jpg" 1768553998 36872 eb3620d427dc6311bb606260baede16a ""
   "figures/rdb.png" 1744270862 15668 c33b1d76aea746835b1a4bdc7537aa8b ""
   (generated)
