@@ -14,43 +14,43 @@
 \select@language {magyar} \contentsline {section}{\numberline {3.1}Adatbázis terv}{9}{section.3.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.1.1}ER-diagram és kapcsolatok}{9}{subsection.3.1.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.1.2}Adatszótár és táblaleírások}{10}{subsection.3.1.2}%
-\select@language {magyar} \contentsline {section}{\numberline {3.2}Rendszerarchitektúra és komponensek}{12}{section.3.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}Általános architektúra}{12}{subsection.3.2.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2.2}Komponensek és felelősségek}{12}{subsection.3.2.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2.3}Skálázás és rendelkezésre állás}{13}{subsection.3.2.3}%
-\select@language {magyar} \contentsline {section}{\numberline {3.3}ORM (Object-Relational Mapping)}{13}{section.3.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.3.1}Tervezési döntések}{13}{subsection.3.3.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.3.2}Mapping és DTO stratégia}{13}{subsection.3.3.2}%
-\select@language {magyar} \contentsline {section}{\numberline {3.4}Entity Framework}{14}{section.3.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.4.1}DbContext és konfiguráció}{14}{subsection.3.4.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.4.2}Teljesítmény- és karbantartási praktikák}{14}{subsection.3.4.2}%
-\select@language {magyar} \contentsline {section}{\numberline {3.5}REST API végpontok tervezése}{14}{section.3.5}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.5.1}Erőforrás-orientált tervezés}{14}{subsection.3.5.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.5.2}Példa végpontok és viselkedés}{14}{subsection.3.5.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.5.3}Hiba- és státuszkódok}{15}{subsection.3.5.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.5.4}Biztonság és adatvédelem}{15}{subsection.3.5.4}%
-\select@language {magyar} \contentsline {section}{\numberline {3.6}UI/UX Tervek (Wireframes)}{16}{section.3.6}%
-\select@language {magyar} \contentsline {chapter}{\numberline {4}Megvalósítás}{17}{chapter.4}%
-\select@language {magyar} \contentsline {section}{\numberline {4.1}Adatbázis réteg implementációja}{17}{section.4.1}%
-\select@language {magyar} \contentsline {section}{\numberline {4.2}REST Backend fejlesztése}{17}{section.4.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Adatkezelés és Üzleti logika}{17}{subsection.4.2.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Biztonság és Autentikáció (JWT)}{17}{subsection.4.2.2}%
-\select@language {magyar} \contentsline {section}{\numberline {4.3}React Frontend fejlesztése}{17}{section.4.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.1}Komponens-architektúra}{17}{subsection.4.3.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.2}Reszponzív megoldások és Mobil nézet}{17}{subsection.4.3.2}%
-\select@language {magyar} \contentsline {section}{\numberline {4.4}WPF Desktop alkalmazás}{17}{section.4.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}MVVM architektúra és Adatkötés}{17}{subsection.4.4.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Törzsadat-karbantartó modulok}{17}{subsection.4.4.2}%
-\select@language {magyar} \contentsline {chapter}{\numberline {5}Minőségbiztosítás és Tesztelés}{18}{chapter.5}%
-\select@language {magyar} \contentsline {section}{\numberline {5.1}Unit tesztek (Egységtesztelés)}{18}{section.5.1}%
-\select@language {magyar} \contentsline {section}{\numberline {5.2}API tesztelés (Postman/Swagger)}{18}{section.5.2}%
-\select@language {magyar} \contentsline {section}{\numberline {5.3}Felhasználói felület és Reszponzivitás tesztelése}{18}{section.5.3}%
-\select@language {magyar} \contentsline {section}{\numberline {5.4}Hibajegyzék és javítások}{18}{section.5.4}%
-\select@language {magyar} \contentsline {chapter}{\numberline {6}Felhasználói útmutató}{19}{chapter.6}%
-\select@language {magyar} \contentsline {section}{\numberline {6.1}Rendszerkövetelmények és Telepítés}{19}{section.6.1}%
-\select@language {magyar} \contentsline {section}{\numberline {6.2}A szoftver használata (Web/WPF)}{19}{section.6.2}%
-\select@language {magyar} \contentsline {chapter}{\numberline {7}Összegzés}{20}{chapter.7}%
-\select@language {magyar} \contentsline {section}{\numberline {7.1}Projekt értékelése}{20}{section.7.1}%
-\select@language {magyar} \contentsline {section}{\numberline {7.2}Továbbfejlesztési lehetőségek}{20}{section.7.2}%
-\select@language {magyar} \contentsline {chapter}{Mellékletek}{22}{chapter*.2}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{24}{chapter*.3}%
+\select@language {magyar} \contentsline {section}{\numberline {3.2}Rendszerarchitektúra és komponensek}{13}{section.3.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}Általános architektúra}{13}{subsection.3.2.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.2}Komponensek és felelősségek}{14}{subsection.3.2.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.3}Skálázás és rendelkezésre állás}{14}{subsection.3.2.3}%
+\select@language {magyar} \contentsline {section}{\numberline {3.3}ORM (Object-Relational Mapping)}{15}{section.3.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.3.1}Tervezési döntések}{15}{subsection.3.3.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.3.2}Mapping és DTO stratégia}{15}{subsection.3.3.2}%
+\select@language {magyar} \contentsline {section}{\numberline {3.4}Entity Framework}{15}{section.3.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.4.1}DbContext és konfiguráció}{15}{subsection.3.4.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.4.2}Teljesítmény- és karbantartási praktikák}{16}{subsection.3.4.2}%
+\select@language {magyar} \contentsline {section}{\numberline {3.5}REST API végpontok tervezése}{16}{section.3.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.5.1}Erőforrás-orientált tervezés}{16}{subsection.3.5.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.5.2}Példa végpontok és viselkedés}{16}{subsection.3.5.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.5.3}Hiba- és státuszkódok}{16}{subsection.3.5.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.5.4}Biztonság és adatvédelem}{17}{subsection.3.5.4}%
+\select@language {magyar} \contentsline {section}{\numberline {3.6}UI/UX Tervek (Wireframes)}{17}{section.3.6}%
+\select@language {magyar} \contentsline {chapter}{\numberline {4}Megvalósítás}{19}{chapter.4}%
+\select@language {magyar} \contentsline {section}{\numberline {4.1}Adatbázis réteg implementációja}{19}{section.4.1}%
+\select@language {magyar} \contentsline {section}{\numberline {4.2}REST Backend fejlesztése}{19}{section.4.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Adatkezelés és Üzleti logika}{20}{subsection.4.2.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Biztonság és Autentikáció (JWT)}{20}{subsection.4.2.2}%
+\select@language {magyar} \contentsline {section}{\numberline {4.3}React Frontend fejlesztése}{20}{section.4.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3.1}Komponens-architektúra}{20}{subsection.4.3.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3.2}Reszponzív megoldások és Mobil nézet}{20}{subsection.4.3.2}%
+\select@language {magyar} \contentsline {section}{\numberline {4.4}WPF Desktop alkalmazás}{20}{section.4.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}MVVM architektúra és Adatkötés}{21}{subsection.4.4.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Törzsadat-karbantartó modulok}{21}{subsection.4.4.2}%
+\select@language {magyar} \contentsline {chapter}{\numberline {5}Minőségbiztosítás és Tesztelés}{22}{chapter.5}%
+\select@language {magyar} \contentsline {section}{\numberline {5.1}Unit tesztek (Egységtesztelés)}{22}{section.5.1}%
+\select@language {magyar} \contentsline {section}{\numberline {5.2}API tesztelés (Postman/Swagger)}{22}{section.5.2}%
+\select@language {magyar} \contentsline {section}{\numberline {5.3}Felhasználói felület és Reszponzivitás tesztelése}{23}{section.5.3}%
+\select@language {magyar} \contentsline {section}{\numberline {5.4}Hibajegyzék és javítások}{23}{section.5.4}%
+\select@language {magyar} \contentsline {chapter}{\numberline {6}Felhasználói útmutató}{24}{chapter.6}%
+\select@language {magyar} \contentsline {section}{\numberline {6.1}Rendszerkövetelmények és Telepítés}{24}{section.6.1}%
+\select@language {magyar} \contentsline {section}{\numberline {6.2}A szoftver használata (Web/WPF)}{24}{section.6.2}%
+\select@language {magyar} \contentsline {chapter}{\numberline {7}Összegzés}{26}{chapter.7}%
+\select@language {magyar} \contentsline {section}{\numberline {7.1}Projekt értékelése}{26}{section.7.1}%
+\select@language {magyar} \contentsline {section}{\numberline {7.2}Továbbfejlesztési lehetőségek}{26}{section.7.2}%
+\select@language {magyar} \contentsline {chapter}{Mellékletek}{29}{chapter*.2}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{31}{chapter*.3}%
